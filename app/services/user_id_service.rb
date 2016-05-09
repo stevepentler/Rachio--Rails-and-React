@@ -1,4 +1,4 @@
-class UserId
+class UserIdService
   attr_reader :client
 
   def initialize

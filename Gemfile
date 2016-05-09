@@ -13,10 +13,16 @@ gem 'figaro'
 
 group :development, :test do
   gem 'pry'
+  gem 'launchy'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'capybara'
 end
 
