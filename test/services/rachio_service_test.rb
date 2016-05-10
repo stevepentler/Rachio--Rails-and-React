@@ -39,6 +39,7 @@ class RachioServiceTest < ActiveSupport::TestCase
       assert_equal 8, zones.length
       assert zones.include?(first_zone_id)
       assert zones.include?(second_zone_id)
+      refute zones.include?("non-existent zone")
     end
   end
 end
