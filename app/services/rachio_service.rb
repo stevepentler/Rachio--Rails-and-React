@@ -35,6 +35,12 @@ class RachioService
     return zones
   end
 
+  def store_data
+    retrieve_user_id
+    retrieve_devices
+    retrieve_device_zones
+  end
+
   private
 
   def rachio_headers
