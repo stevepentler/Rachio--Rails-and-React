@@ -14,7 +14,8 @@ var Header = React.createClass({
   render() {
     return (
       <div>
-        <h1 className="header">Header</h1>
+        <span className="header-title">Rachio</span>
+
       </div>
     )
   }
