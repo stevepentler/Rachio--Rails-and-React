@@ -22,7 +22,7 @@ class PersonalInfoServiceTest < ActiveSupport::TestCase
       service = PersonalInfoService.new
       device_id = "c761bfa0-4c49-4b4f-8a79-04e42bea881a"
 
-      assert_equal device_id, service.retrieve_device_id
+      assert_equal device_id, service.retrieve_device_ids.first
     end
   end
 
