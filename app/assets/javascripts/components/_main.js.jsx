@@ -18,15 +18,22 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      devices: {},
       zones: {}
     }
+  }
+
+  addZone(zone_id, device_id) {
+    this.setState({
+      zones: {zone_id: device_id}
+    })
   }
 
   render() {
     return (
       <div>
         < Header />
+
+
       </div>
     )
   }
