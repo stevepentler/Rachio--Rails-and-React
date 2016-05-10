@@ -14,8 +14,7 @@ var Header = React.createClass({
   render() {
     return (
       <div>
-        <span className="header-title">Rachio</span>
-
+        <img src="http://rachio-media.s3.amazonaws.com/images/logo/rachio-logo-for-web-300px.png" />
       </div>
     )
   }

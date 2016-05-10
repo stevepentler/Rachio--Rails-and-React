@@ -17,3 +17,7 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.dark-background {
+  background-color: #00283A;
+}
