@@ -23,8 +23,8 @@ class PersonalInfoServiceTest < ActiveSupport::TestCase
       first_device_id = "c761bfa0-4c49-4b4f-8a79-04e42bea881a"
       last_device_id = "c761bfa0-4c49-4b4f-8a79-04e42bea881a"
 
-      assert_equal first_device_id, service.retrieve_device_ids.first["id"]
-      assert_equal last_device_id, service.retrieve_device_ids.last["id"]
+      assert_equal first_device_id, service.retrieve_devices.first["id"]
+      assert_equal last_device_id, service.retrieve_devices.last["id"]
     end
   end
 

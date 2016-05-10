@@ -21,18 +21,14 @@ class PersonalInfoService
     info = parse_body(response)
   end
 
-  def retrieve_device_ids
+  def retrieve_devices
     devices = retrieve_user_info["devices"]
     save_devices(devices)
     return devices
   end
 
-  def format_devices(devices)
-    devices.map { |device| device["id"] }
-  end
-
   def retrieve_device_zones(id=nil)
-    device_id = id ||= retrieve_device_ids.first["id"]
+    device_id = id ||= retrieve_devices.first["id"]
     response = client.get("device/#{device_id}")
     zones = parse_body(response)["zones"]
     save_zones(zones, device_id)
