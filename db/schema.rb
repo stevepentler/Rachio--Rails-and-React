@@ -11,9 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160510031013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "devices", force: :cascade do |t|
+    t.string   "device_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "zones", force: :cascade do |t|
+    t.string   "zone_id"
+    t.integer  "device_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "zones", ["device_id"], name: "index_zones_on_device_id", using: :btree
+
+  add_foreign_key "devices", "users"
+  add_foreign_key "zones", "devices"
 end

@@ -17,28 +17,25 @@ class PersonalInfoServiceTest < ActiveSupport::TestCase
     end
   end
 
-  test 'retrieves user device id' do
+  test 'retrieves user devices' do
     VCR.use_cassette('user_info') do
       service = PersonalInfoService.new
-      device_id = "c761bfa0-4c49-4b4f-8a79-04e42bea881a"
+      first_device_id = "c761bfa0-4c49-4b4f-8a79-04e42bea881a"
+      last_device_id = "c761bfa0-4c49-4b4f-8a79-04e42bea881a"
 
-      assert_equal device_id, service.retrieve_device_ids.first
+      assert_equal first_device_id, service.retrieve_devices.first["id"]
+      assert_equal last_device_id, service.retrieve_devices.last["id"]
     end
   end
 
   test 'retrieves all zones for device' do
     service = PersonalInfoService.new
-    VCR.use_cassette('devise_zones') do
-      zones = ["4f1b562e-1dc3-40d7-acf1-2a1998a47786",
-               "61197df9-d256-4959-8117-7625f919b2b3",
-               "5dba747c-ad3e-450e-bf85-5061ca3bdbd5",
-               "ad9f83be-8a6c-47ad-af40-8300557c3355",
-               "b709ec48-8b6e-44c9-937d-1c1c82376fd2",
-               "69c72b55-6418-461d-bd86-1f3eac38dbe2",
-               "5e78b7b7-c0c6-48e4-aab0-2504d4633564",
-               "18a7b4a0-0b46-4096-aefe-569d48954cef"]
+    VCR.use_cassette('device_zones') do
+      first_zone_id = "4f1b562e-1dc3-40d7-acf1-2a1998a47786"
+      last_zone_id = "18a7b4a0-0b46-4096-aefe-569d48954cef"
 
-      assert_equal zones, service.retrieve_device_zones
+      assert_equal first_zone_id, service.retrieve_device_zones.first["id"]
+      assert_equal last_zone_id, service.retrieve_device_zones.last["id"]
     end
   end
 end

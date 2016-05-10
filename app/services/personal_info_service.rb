@@ -1,5 +1,7 @@
 class PersonalInfoService
-  attr_reader :client
+  include StoreDevice
+  attr_reader :client,
+              :user_id
 
   def initialize
     @client = Faraday.new("https://api.rach.io/1/public/") do |faraday|
@@ -10,7 +12,7 @@ class PersonalInfoService
 
   def retrieve_user_id
     response = client.get("person/info")
-    id = parse_body(response)["id"]
+    user_id = parse_body(response)["id"]
   end
 
   def retrieve_user_info
@@ -19,24 +21,18 @@ class PersonalInfoService
     info = parse_body(response)
   end
 
-  def retrieve_device_ids
+  def retrieve_devices
     devices = retrieve_user_info["devices"]
-    format_devices(devices)
+    save_devices(devices)
+    return devices
   end
 
-  def format_devices(devices)
-    devices.map { |device| device["id"] }
-  end
-
-  def retrieve_device_zones(device_id=nil)
-    id = device_id ||= retrieve_device_ids.first
-    response = client.get("device/#{id}")
+  def retrieve_device_zones(id=nil)
+    device_id = id ||= retrieve_devices.first["id"]
+    response = client.get("device/#{device_id}")
     zones = parse_body(response)["zones"]
-    format_device_zones(zones)
-  end
-
-  def format_device_zones(zones)
-    zones.map { |zone| zone["id"] }
+    save_zones(zones, device_id)
+    return zones
   end
 
   private
