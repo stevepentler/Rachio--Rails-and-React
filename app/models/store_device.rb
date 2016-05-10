@@ -1,7 +1,7 @@
 module StoreDevice
   def save_devices(devices)
     devices.each do |single_device|
-      device = Device.find_or_create_by(device_id: single_device)
+      device = Device.find_or_create_by(device_id: single_device["id"])
       # device.user_id = user_id
       device.save
     end

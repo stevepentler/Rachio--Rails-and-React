@@ -23,9 +23,8 @@ class PersonalInfoService
 
   def retrieve_device_ids
     devices = retrieve_user_info["devices"]
-    formatted_devices = format_devices(devices)
-    save_devices(formatted_devices)
-    return formatted_devices
+    save_devices(devices)
+    return devices
   end
 
   def format_devices(devices)
@@ -33,7 +32,7 @@ class PersonalInfoService
   end
 
   def retrieve_device_zones(id=nil)
-    device_id = id ||= retrieve_device_ids.first
+    device_id = id ||= retrieve_device_ids.first["id"]
     response = client.get("device/#{device_id}")
     zones = parse_body(response)["zones"]
     save_zones(zones, device_id)
