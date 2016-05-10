@@ -28,17 +28,12 @@ class PersonalInfoServiceTest < ActiveSupport::TestCase
 
   test 'retrieves all zones for device' do
     service = PersonalInfoService.new
-    VCR.use_cassette('devise_zones') do
-      zones = ["4f1b562e-1dc3-40d7-acf1-2a1998a47786",
-               "61197df9-d256-4959-8117-7625f919b2b3",
-               "5dba747c-ad3e-450e-bf85-5061ca3bdbd5",
-               "ad9f83be-8a6c-47ad-af40-8300557c3355",
-               "b709ec48-8b6e-44c9-937d-1c1c82376fd2",
-               "69c72b55-6418-461d-bd86-1f3eac38dbe2",
-               "5e78b7b7-c0c6-48e4-aab0-2504d4633564",
-               "18a7b4a0-0b46-4096-aefe-569d48954cef"]
+    VCR.use_cassette('device_zones') do
+      first_zone_id = "4f1b562e-1dc3-40d7-acf1-2a1998a47786"
+      last_zone_id = "18a7b4a0-0b46-4096-aefe-569d48954cef"
 
-      assert_equal zones, service.retrieve_device_zones
+      assert_equal first_zone_id, service.retrieve_device_zones.first["id"]
+      assert_equal last_zone_id, service.retrieve_device_zones.last["id"]
     end
   end
 end
