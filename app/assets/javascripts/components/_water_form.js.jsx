@@ -10,10 +10,13 @@ var Zones = React.createClass({
   },
 
   render() {
+    console.log(this.state.zones)
     let zones = this.state.zones.map((zone) => {
       return (
-        <div>
-          <h3>{zone.id}</h3>
+        <div key={zone.id} >
+          <h3>{zone.name}</h3>
+          <span>Previous Duration: {zone.lastWateredDuration} minutes</span>
+          < WaterForm />
         </div>
       )
     });
