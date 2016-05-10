@@ -12,8 +12,6 @@ class PersonalInfoService
   def retrieve_user_id
     response = client.get("person/info")
     user_id = parse_body(response)["id"]
-    User.store_user(user_id)
-    return user_id
   end
 
   def retrieve_user_info
