@@ -1,6 +1,10 @@
 'use strict';
 
 class Main extends React.Component {
+  componentDidMount() {
+    loadData();
+  }
+
   loadData() {
     $.ajax({
       url: '/api/v1/data',
@@ -10,10 +14,14 @@ class Main extends React.Component {
       }
     })
   }
-  componentDidMount() {
-    loadData();
-  }
 
+  constructor() {
+    super();
+    this.state = {
+      devices: {},
+      zones: {}
+    }
+  }
 
   render() {
     return (

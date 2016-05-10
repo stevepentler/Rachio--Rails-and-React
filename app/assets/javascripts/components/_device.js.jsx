@@ -1,6 +1,6 @@
 'use strict';
 
-class Header extends React.Component {
+class Device extends React.Component {
   componentDidMount() {
       $.ajax({
       url: '/api/v1/data',
