@@ -12,7 +12,7 @@ class RachioService
 
   def retrieve_user_id
     response = client.get("person/info")
-    user_id = parse_body(response)["id"]
+    @user_id = parse_body(response)["id"]
   end
 
   def retrieve_user_info
@@ -23,7 +23,7 @@ class RachioService
 
   def retrieve_devices
     devices = retrieve_user_info["devices"]
-    save_devices(devices)
+    save_devices(devices, user_id)
     return devices
   end
 
