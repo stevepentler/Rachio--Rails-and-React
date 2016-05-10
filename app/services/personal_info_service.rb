@@ -8,9 +8,19 @@ class PersonalInfoService
     end
   end
 
-  def retrieve_id
+  def retrieve_user_id
     response = client.get("person/info")
-    id = JSON.parse(response.body)["id"]
+    id = parse_body(response)["id"]
+  end
+
+  def retrieve_user_info
+    id = retrieve_user_id
+    response = client.get("person/#{id}")
+    info = parse_body(response)
+  end
+
+  def retrieve_device_id
+    retrieve_user_info["devices"].first["id"]
   end
 
   private
@@ -18,5 +28,9 @@ class PersonalInfoService
   def rachio_headers
     {"Authorization" => "Bearer #{ENV['ACCESS_TOKEN']}",
      "Content-Type" => "application/json" }
+  end
+
+  def parse_body(response)
+    JSON.parse(response.body)
   end
 end
