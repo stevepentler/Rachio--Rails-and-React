@@ -1,11 +1,11 @@
 'use strict';
 
-class Main extends React.Component {
-  componentDidMount() {
+var Main = React.createClass({
+  componentDidMount: function() {
     loadData();
-  }
+  },
 
-  loadData() {
+  loadData: function() {
     $.ajax({
       url: '/api/v1/data',
       type: 'GET',
@@ -13,28 +13,18 @@ class Main extends React.Component {
         console.log('Data Loaded', response);
       }
     })
-  }
+  },
 
-  constructor() {
-    super();
-    this.state = {
-      zones: {}
-    }
-  }
-
-  addZone(zone_id, device_id) {
-    this.setState({
-      zones: {zone_id: device_id}
-    })
-  }
+  getInitialState() {
+    return { zones: {} }
+  },
 
   render() {
     return (
       <div>
         < Header />
-
-
+        < Zones zones={this.state.zones} />
       </div>
     )
   }
-};
+});

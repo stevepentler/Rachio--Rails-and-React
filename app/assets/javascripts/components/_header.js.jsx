@@ -1,15 +1,6 @@
 'use strict';
 
 class Header extends React.Component {
-  componentDidMount() {
-      $.ajax({
-      url: '/api/v1/data',
-      type: 'GET',
-      success: (response) => {
-        console.log('it worked', response);
-      }
-    })
-  }
 
   render() {
     return (
