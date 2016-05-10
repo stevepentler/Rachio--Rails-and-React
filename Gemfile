@@ -24,5 +24,8 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'capybara'
+  gem 'vcr'
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
