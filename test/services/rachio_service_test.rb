@@ -32,10 +32,11 @@ class RachioServiceTest < ActiveSupport::TestCase
     service = RachioService.new
     VCR.use_cassette('device_zones') do
       first_zone_id = "4f1b562e-1dc3-40d7-acf1-2a1998a47786"
-      last_zone_id = "18a7b4a0-0b46-4096-aefe-569d48954cef"
+      second_zone_id = "18a7b4a0-0b46-4096-aefe-569d48954cef"
 
-      assert_equal first_zone_id, service.retrieve_device_zones.first["id"]
-      assert_equal last_zone_id, service.retrieve_device_zones.last["id"]
+      zones = service.retrieve_device_zones.map {|zone| zone["id"]}
+      assert zones.include?(first_zone_id)
+      assert zones.include?(second_zone_id)
     end
   end
 end
