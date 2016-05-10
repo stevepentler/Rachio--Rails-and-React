@@ -3,7 +3,7 @@ require 'test_helper'
 class ZoneTest < ActiveSupport::TestCase
   test 'retrieve zones saves device to database' do
     VCR.use_cassette('device_zones') do
-      service = PersonalInfoService.new
+      service = RachioService.new
       assert_difference 'Zone.count', 8 do
         service.retrieve_device_zones
       end

@@ -3,7 +3,7 @@ require 'test_helper'
 class DeviceTest < ActiveSupport::TestCase
   test 'retrieve device saves device to database' do
     VCR.use_cassette('user_info') do
-      service = PersonalInfoService.new
+      service = RachioService.new
       assert_difference 'Device.count', 1 do
         service.retrieve_devices
       end
