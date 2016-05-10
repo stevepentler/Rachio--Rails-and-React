@@ -23,6 +23,19 @@ class PersonalInfoService
     retrieve_user_info["devices"].first["id"]
   end
 
+  def retrieve_device_zones
+    id = retrieve_device_id
+    response = client.get("device/#{id}")
+    zones = parse_body(response)["zones"]
+    format_device_zones(zones)
+  end
+
+  def format_device_zones(zones)
+    zones.map do |zone|
+      zone["id"]
+    end
+  end
+
   private
 
   def rachio_headers
