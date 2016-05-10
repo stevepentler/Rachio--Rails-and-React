@@ -1,5 +1,6 @@
 class PersonalInfoService
-  attr_reader :client
+  attr_reader :client,
+              :user_id
 
   def initialize
     @client = Faraday.new("https://api.rach.io/1/public/") do |faraday|
@@ -10,7 +11,9 @@ class PersonalInfoService
 
   def retrieve_user_id
     response = client.get("person/info")
-    id = parse_body(response)["id"]
+    user_id = parse_body(response)["id"]
+    User.store_user(user_id)
+    return user_id
   end
 
   def retrieve_user_info
