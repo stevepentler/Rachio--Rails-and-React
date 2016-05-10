@@ -1,4 +1,4 @@
-class PersonalInfoService
+class RachioService
   include StoreDevice
   attr_reader :client,
               :user_id
