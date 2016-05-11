@@ -1,6 +1,6 @@
-class DataController < ApplicationController
+class Api::V1::DataController < ApplicationController
+  respond_to :json
   def index
-    capture_data = RachioService.new.store_data
-    binding.pry
+    respond_with RachioService.new.store_data
   end
 end
