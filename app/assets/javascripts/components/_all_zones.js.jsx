@@ -8,7 +8,7 @@ var AllZones = React.createClass({
       zones = this.props.zones.map((zone) => {
         return (
           <div key={zone.id}>
-            < Zone zone={zone} />
+            < Zone zone={zone} waterZone={this.props.waterZone} />
           </div>
         )
       })

@@ -42,4 +42,14 @@ class RachioServiceTest < ActiveSupport::TestCase
       refute zones.include?("non-existent zone")
     end
   end
+
+  test 'succesfully starts single zone' do
+    service = RachioService.new
+    VCR.use_cassette('start_zone') do
+      params = {"zoneId"=>"ad9f83be-8a6c-47ad-af40-8300557c3355", #zone4
+                "zoneDuration"=>"1200" }
+
+      assert_equal 204, service.start_zone(params).status
+    end
+  end
 end
