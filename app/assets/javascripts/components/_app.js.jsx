@@ -44,12 +44,23 @@ var App = React.createClass({
     })
   },
 
+  waterZone(zoneData) {
+     $.ajax({
+      url: '/api/v1/devices',
+      type: 'POST',
+      data: zoneData,
+      success: (response) => {
+        console.log("watering")
+      }
+    })
+  },
+
 
   render() {
     return (
       <div className="container">
         < Header />
-        < Device device={this.state.device} zones={this.state.zones} />
+        < Device device={this.state.device} zones={this.state.zones} waterZone={this.waterZone} />
       </div>
     )
   }
