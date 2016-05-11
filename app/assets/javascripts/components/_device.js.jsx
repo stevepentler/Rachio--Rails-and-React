@@ -5,7 +5,6 @@ var Device = React.createClass({
     return(
       <div>
         <h5>Device ID: {this.props.device.device_id}</h5>
-
       </div>
     )
   }

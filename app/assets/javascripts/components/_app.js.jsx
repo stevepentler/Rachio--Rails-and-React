@@ -47,7 +47,7 @@ var App = React.createClass({
 
   render() {
     return (
-      <div>
+      <div className="container">
         < Header />
         < Device device={this.state.device} zones={this.state.zones} />
       </div>
