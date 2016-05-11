@@ -14,7 +14,7 @@ var Zone = React.createClass({
             <h6>{zone.lastWateredDuration} mins on {date}</h6>
           </div>
 
-          <div className="col s3">
+          <div className="col s4">
             < WateringForm zone={this.props.zone} waterZone={this.props.waterZone} />
           </div>
         </div>
