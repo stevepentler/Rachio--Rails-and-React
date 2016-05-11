@@ -16,11 +16,15 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  font-color: #00283A;
+  color: #00283A;
 }
 
-.dark-background {
-  background-color: #00283A;
+.blue-font {
+  color: #00A6E5;
+}
+
+.active {
+  color: #00283A;
 }
 
 .zone-card {
@@ -29,5 +33,9 @@ body {
 
 .btn {
   background-color: #00A6E5;
+}
+
+.btn:hover, .btn-large:hover {
+  background-color: #00283A;
 }
 
