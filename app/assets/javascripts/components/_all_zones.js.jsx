@@ -7,16 +7,15 @@ var AllZones = React.createClass({
     if (Object.keys(this.props.zones).length != 0) {
       zones = this.props.zones.map((zone) => {
         return (
-          <div key={zone.zone_id}>
+          <div key={zone.id}>
             < Zone zone={zone} />
           </div>
         )
       })
-      return zones
     }
 
     return (
-      <div>
+      <div key="zones">
         {zones}
       </div>
     )
