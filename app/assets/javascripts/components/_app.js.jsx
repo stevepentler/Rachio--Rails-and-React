@@ -3,7 +3,9 @@
 var App = React.createClass({
 
   getInitialState() {
-    return { zones: {} }
+    return { zones: {},
+             devices: {}
+           }
   },
 
   componentDidMount() {
@@ -21,6 +23,17 @@ var App = React.createClass({
     })
   },
 
+  getDevices() {
+    $.ajax({
+      url: '/api/v1/devices',
+      type: 'GET',
+      success: (response) => {
+        console.log("devices", response)
+        this.setState({ devices: response})
+      }
+    })
+  },
+
   loadData() {
     $.ajax({
       url: '/api/v1/data',
@@ -28,7 +41,7 @@ var App = React.createClass({
       success: (response) => {
         console.log('Data Loaded', response);
       }
-    }).then(this.getZones)
+    }).then(this.getZones).then(this.getDevices);
   },
 
   render() {
