@@ -14,11 +14,7 @@ var Zone = React.createClass({
           </div>
 
           <div className="col s2">
-            <form>
-              <h6>Watering Duration</h6>
-              <input type="number" placeholder={zone.lastWateredDuration + " mins"} />
-              <button className="btn center">Water {zone.name}</button>
-            </form>
+            < WateringForm zone={this.props.zone} />
           </div>
         </div>
       </div>
