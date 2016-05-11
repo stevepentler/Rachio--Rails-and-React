@@ -6,7 +6,7 @@ var Device = React.createClass({
     return(
       <div>
         <h5>Device ID: {device_id}</h5>
-        < Zone device={this.props.device} zones={this.props.zones} />
+        < AllZones device={this.props.device} zones={this.props.zones} />
       </div>
     )
   }
