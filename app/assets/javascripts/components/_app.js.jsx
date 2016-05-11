@@ -10,6 +10,17 @@ var App = React.createClass({
     this.loadData()
   },
 
+  getZones() {
+    $.ajax({
+      url: '/api/v1/data',
+      type: 'GET',
+      success: (response) => {
+        console.log("zones", response)
+        this.setState({ zones: response})
+      }
+    })
+  },
+
   loadData() {
     $.ajax({
       url: '/api/v1/data',
@@ -17,7 +28,7 @@ var App = React.createClass({
       success: (response) => {
         console.log('Data Loaded', response);
       }
-    })
+    }).then(this.getZones)
   },
 
   render() {
