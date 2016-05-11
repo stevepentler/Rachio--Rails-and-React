@@ -1,11 +1,16 @@
 'use strict';
 
 var Main = React.createClass({
-  componentDidMount: function() {
+
+  getInitialState() {
+    return { zones: {} }
+  },
+
+  componentDidMount() {
     loadData();
   },
 
-  loadData: function() {
+  loadData() {
     $.ajax({
       url: '/api/v1/data',
       type: 'GET',
@@ -15,9 +20,6 @@ var Main = React.createClass({
     })
   },
 
-  getInitialState() {
-    return { zones: {} }
-  },
 
   render() {
     return (
