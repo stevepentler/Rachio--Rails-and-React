@@ -41,6 +41,12 @@ class RachioService
     retrieve_device_zones
   end
 
+  def start_zone(params)
+    zone_id = params["zoneId"]
+    duration = params["zoneDuration"]
+    binding.pry
+  end
+
   private
 
   def rachio_headers

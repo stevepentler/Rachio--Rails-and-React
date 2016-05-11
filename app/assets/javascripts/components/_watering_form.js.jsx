@@ -5,7 +5,6 @@ var WateringForm = React.createClass({
       zoneId: this.refs.zoneId.value,
       zoneDuration: this.refs.zoneDuration.value * 60
     }
-    console.log(zoneData);
     this.props.waterZone(zoneData);
   },
 
