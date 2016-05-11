@@ -21,3 +21,7 @@ body {
 .dark-background {
   background-color: #00283A;
 }
+
+.zone-card {
+  padding: 5px 10px;
+}
