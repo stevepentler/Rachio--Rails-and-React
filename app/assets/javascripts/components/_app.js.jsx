@@ -1,13 +1,13 @@
 'use strict';
 
-var Main = React.createClass({
+var App = React.createClass({
 
   getInitialState() {
     return { zones: {} }
   },
 
   componentDidMount() {
-    loadData();
+    this.loadData()
   },
 
   loadData() {
@@ -20,12 +20,10 @@ var Main = React.createClass({
     })
   },
 
-
   render() {
     return (
       <div>
         < Header />
-        < Zones zones={this.state.zones} />
       </div>
     )
   }
