@@ -12,6 +12,7 @@ gem 'faraday'
 gem 'figaro'
 gem 'react-rails'
 gem 'responders'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'pry'
