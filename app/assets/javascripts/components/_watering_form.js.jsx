@@ -25,16 +25,21 @@ var WateringForm = React.createClass({
     var formState;
     if (this.state.watering) {
       return (
-        <div>
-          <h5>Watering {zone.name} for {zoneDuration} minutes!</h5>
-          <img src={zone.customNozzle.imageUrl} height='60px' width="auto"/>
+        <div className="center">
+          <h5>Watering {zone.name}</h5>
+          <h6> for {zoneDuration} minutes</h6>
+          <img src={zone.customNozzle.imageUrl} height='50px' width="auto"/>
+          <img src={zone.customNozzle.imageUrl} height='50px' width="auto"/>
+          <img src={zone.customNozzle.imageUrl} height='50px' width="auto"/>
+          <img src={zone.customNozzle.imageUrl} height='50px' width="auto"/>
+          <img src={zone.customNozzle.imageUrl} height='50px' width="auto"/>
         </div>
       )
     } else {
       return (
-        <form >
+        <form className="center">
           <h6>Watering Duration</h6>
-          <input type="number" ref="zoneDuration" max="180" min="1" placeholder={previousDurationMinutes+ " mins"} required />
+          <input type="number" ref="zoneDuration" max="180" min="1" placeholder={previousDurationMinutes+ " mins"} width="200px" required />
           <input type="hidden" ref="zoneId" value={zone.id} />
           <button type="submit" onClick={this.handleWater} className="btn center">Water {zone.name}</button>
         </form>
