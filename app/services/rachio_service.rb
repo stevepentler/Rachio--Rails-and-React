@@ -44,7 +44,8 @@ class RachioService
   def start_zone(params)
     zone_id = params["zoneId"]
     duration = params["zoneDuration"]
-    binding.pry
+    data = "{ \"id\" : \"#{zone_id}\", \"duration\" : #{duration} }"
+    response = client.put("zone/start", data)
   end
 
   private
