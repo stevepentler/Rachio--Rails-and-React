@@ -46,17 +46,11 @@ var App = React.createClass({
 
   waterZone(zoneData) {
     console.log("zonedata", zoneData)
-     $.ajax({
+    $.ajax({
       url: '/api/v1/zones/' + zoneData.zoneId,
       type: 'PUT',
       data: zoneData,
-      success: (response) => {
-        console.log("watering")
-      },
-      error: (response) => {
-        console.log("error, not watering")
-      }
-    })
+    }).then(console.log("watering " + zoneData.zoneId + " for " + zoneData.zoneDuration +  " seconds"))
   },
 
 
