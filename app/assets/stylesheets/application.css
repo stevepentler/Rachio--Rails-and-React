@@ -16,6 +16,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  font-color: #00283A;
 }
 
 .dark-background {
@@ -29,3 +30,4 @@ body {
 .btn {
   background-color: #00A6E5;
 }
+
