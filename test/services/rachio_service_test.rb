@@ -52,4 +52,5 @@ class RachioServiceTest < ActiveSupport::TestCase
       assert_equal 204, service.start_zone(params).status
     end
   end
+
 end
