@@ -52,4 +52,14 @@ class RachioServiceTest < ActiveSupport::TestCase
       assert_equal 204, service.start_zone(params).status
     end
   end
+
+  test 'formats data' do
+    service = RachioService.new
+    zone_id = "ad9f83be-8a6c-47ad-af40-8300557c3355"
+    zone_duration = "1200"
+    proper_format = "{ \"id\" : \"ad9f83be-8a6c-47ad-af40-8300557c3355\", \"duration\" : 1200 }"
+
+    assert_equal proper_format, service.format_data(zone_id, zone_duration)
+  end
+
 end

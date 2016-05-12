@@ -43,11 +43,13 @@ class RachioService
 
   def start_zone(params)
     zone_id = params["zoneId"]
-    duration = params["zoneDuration"]
-    data = "{ \"id\" : \"#{zone_id}\", \"duration\" : #{duration} }"
-    response = client.put("zone/start", data)
+    zone_duration = params["zoneDuration"]
+    response = client.put("zone/start", format_data(zone_id, zone_duration))
   end
 
+  def format_data(zone_id, zone_duration)
+    data = "{ \"id\" : \"#{zone_id}\", \"duration\" : #{zone_duration} }"
+  end
   private
 
   def rachio_headers
