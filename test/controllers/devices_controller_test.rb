@@ -10,8 +10,8 @@ class Api::V1::DevicesControllerTest < ActionController::TestCase
                            device_id: device_id)
 
     get :index, format: :json
-
     result = JSON.parse(response.body)
+
     assert_response :success
     assert_equal 200, response.status
     assert_equal user.id, device.user_id
