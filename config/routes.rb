@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :v1 do
     resources :data, only: [:index]
     resources :devices, only: [:index]
-    resources :zones, only: [:index, :update]
+    resources :zones, only: [:update]
   end
 end
 end

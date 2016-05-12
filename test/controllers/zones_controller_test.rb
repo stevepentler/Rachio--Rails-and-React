@@ -2,6 +2,7 @@ require 'test_helper'
 
 class Api::V1::ZonesControllerTest < ActionController::TestCase
   test '#index' do
+    skip #no longer need index action
     user_id = "user"
     device_id = "device"
     zone_id = "zone"
