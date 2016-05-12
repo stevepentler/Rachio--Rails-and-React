@@ -50,3 +50,4 @@ $ rake test
 ```
 - API keys must be properly installed to run test suite. Upon your first API call, data will be stored in a cassettes folder within the test directory. This is to limit calls to the Rachio API during testing.
 
+![Testing](http://i.imgur.com/9AfSQNo.png)
