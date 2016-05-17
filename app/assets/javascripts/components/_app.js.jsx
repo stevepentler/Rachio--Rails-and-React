@@ -27,7 +27,7 @@ var App = React.createClass({
       url: '/api/v1/data',
       type: 'GET',
       success: (response) => {
-        console.log("zones", response)
+        console.log("retrieve zones", response)
         this.setState({ zones: response})
       }
     })
@@ -38,7 +38,7 @@ var App = React.createClass({
       url: '/api/v1/devices',
       type: 'GET',
       success: (response) => {
-        console.log("devices", response)
+        console.log("retrieve devices", response)
         this.setState({ device: response})
       }
     })
