@@ -43,7 +43,7 @@ class RachioService
 
   def start_zone(params)
     zone_id = params["zoneId"]
-    zone_duration = params["zoneDuration"]
+    zone_duration = params["zoneDuration"].to_i
     response = client.put("zone/start", format_data(zone_id, zone_duration))
   end
 
