@@ -31843,7 +31843,7 @@ var App = React.createClass({
       url: '/api/v1/data',
       type: 'GET',
       success: function (response) {
-        console.log("zones", response);
+        console.log("retrieve zones", response);
         _this.setState({ zones: response });
       }
     });
@@ -31856,7 +31856,7 @@ var App = React.createClass({
       url: '/api/v1/devices',
       type: 'GET',
       success: function (response) {
-        console.log("devices", response);
+        console.log("retrieve devices", response);
         _this2.setState({ device: response });
       }
     });
