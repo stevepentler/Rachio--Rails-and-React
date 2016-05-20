@@ -32047,6 +32047,7 @@ var Zone = React.createClass({
   render: function () {
     var zone = this.props.zone;
     var date = new Date(zone.lastWateredDate).toLocaleString();
+    var previousDuration = parseInt(zone.lastWateredDuration / 60);
     return React.createElement(
       "div",
       { className: "card zone-card" },
@@ -32069,7 +32070,7 @@ var Zone = React.createClass({
           React.createElement(
             "h6",
             null,
-            zone.lastWateredDuration,
+            previousDuration,
             " mins on ",
             date
           )
