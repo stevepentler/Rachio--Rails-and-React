@@ -11,12 +11,12 @@
 - [React Rails](https://github.com/reactjs/react-rails) with a Rails backend and internal API.
 
 #### React Components
-  - App  (maintains all state and AJAX calls)
-    - Header  (Rachio logo)
-    - Device  (device and preloader)
-      - All Zones  (maps all device zones)
-        - Zone  (Renders Zone specifics)
-          - WateringForm  (Renders form based on active state)
+  - **App**  (maintains all state and AJAX calls)
+    - **Header**  (Rachio logo)
+    - **Device**  (device and preloader)
+      - **All Zones**  (maps all device zones)
+        - **Zone**  (Renders Zone specifics)
+          - **WateringForm**  (Renders form based on active state)
 
 
 ####To Run this Application Locally:
