@@ -17,6 +17,8 @@
 body {
   font-family: 'Roboto', sans-serif;
   color: #00283A;
+  display: flex;
+  flex-direction: row;
 }
 
 .blue-font {
