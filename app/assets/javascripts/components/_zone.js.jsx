@@ -1,11 +1,12 @@
 'use strict';
 
-var Zone = React.createClass({
+const Zone = React.createClass({
 
   render() {
-    var zone = this.props.zone
-    var date = new Date(zone.lastWateredDate).toLocaleString();
-    var previousDuration = parseInt(zone.lastWateredDuration / 60)
+    let zone = this.props.zone
+    let date = new Date(zone.lastWateredDate).toLocaleString();
+    let previousDuration = parseInt(zone.lastWateredDuration / 60)
+
     return(
       <div className="card zone-card">
         <div className="row">

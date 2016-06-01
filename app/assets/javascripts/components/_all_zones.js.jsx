@@ -15,7 +15,7 @@ var AllZones = React.createClass({
     }
 
     return (
-      <div key="zones">
+      <div key="zones" >
         {zones}
       </div>
     )
