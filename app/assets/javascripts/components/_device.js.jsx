@@ -30,5 +30,10 @@ var Device = React.createClass({
         < AllZones device={this.props.device} zones={this.props.zones} waterZone={this.props.waterZone} />
       </div>
     )
+  },
+
+  propTypes: {
+    device : React.PropTypes.object.isRequired,
+    waterZone : React.PropTypes.func.isRequired
   }
 });
