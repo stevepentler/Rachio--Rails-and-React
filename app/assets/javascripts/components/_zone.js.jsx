@@ -22,6 +22,10 @@ const Zone = React.createClass({
         </div>
       </div>
     )
+  },
+
+  propTypes: {
+    zone : React.PropTypes.object.isRequired
   }
 
 });
