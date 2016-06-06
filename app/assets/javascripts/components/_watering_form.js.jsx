@@ -16,6 +16,7 @@ var WateringForm = React.createClass({
                    });
   },
 
+
   render() {
     var zone = this.props.zone
     var previousDurationMinutes = parseInt(zone.lastWateredDuration / 60.0)
@@ -49,5 +50,10 @@ var WateringForm = React.createClass({
     return(
       {formState}
     )
+  },
+
+  propTypes: {
+    waterZone : React.PropTypes.func.isRequired
   }
+
 })
