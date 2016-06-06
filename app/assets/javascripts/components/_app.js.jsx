@@ -63,3 +63,10 @@ var App = React.createClass({
     )
   }
 });
+
+App.propTypes = {
+    loadData : React.PropTypes.func.isRequired,
+    getZones : React.PropTypes.func.isRequired,
+    getDevices : React.PropTypes.func.isRequired,
+    waterZone : React.PropTypes.func.isRequired
+}
