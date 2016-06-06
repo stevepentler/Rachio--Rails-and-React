@@ -53,6 +53,12 @@ var App = React.createClass({
     }).then(console.log("watering " + zoneData.zoneId + " for " + zoneData.zoneDuration +  " seconds"))
   },
 
+  propTypes: {
+    loadData : React.PropTypes.func.isRequired,
+    getZones : React.PropTypes.func.isRequired,
+    getDevices : React.PropTypes.func.isRequired,
+    waterZone : React.PropTypes.func.isRequired
+  },
 
   render() {
     return (
@@ -63,10 +69,3 @@ var App = React.createClass({
     )
   }
 });
-
-App.propTypes = {
-    loadData : React.PropTypes.func.isRequired,
-    getZones : React.PropTypes.func.isRequired,
-    getDevices : React.PropTypes.func.isRequired,
-    waterZone : React.PropTypes.func.isRequired
-}
