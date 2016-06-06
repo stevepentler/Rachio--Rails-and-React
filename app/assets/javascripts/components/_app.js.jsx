@@ -8,7 +8,7 @@ var App = React.createClass({
            }
   },
 
-  componentDidMount() {
+  componentWillMount() {
     this.loadData()
   },
 
